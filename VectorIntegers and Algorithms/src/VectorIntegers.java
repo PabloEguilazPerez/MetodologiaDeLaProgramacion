@@ -228,6 +228,24 @@ public class VectorIntegers {
 	
 
 	public int isSubVector(VectorIntegers vI2) {
-		return 0;
+
+		boolean isSubVector = true;
+
+		for (int i = 0; i <= vI2.length() - this.length(); i++) {
+
+			for (int j = 0; j < this.length(); j++) {
+				if (vI2.get(i + j) != this.get(j)) {
+					isSubVector = false;
+					break;
+				}
+			}
+
+			if (isSubVector) {
+				return i;
+			}
+		}
+
+		return -1;
+
 	}
 }
