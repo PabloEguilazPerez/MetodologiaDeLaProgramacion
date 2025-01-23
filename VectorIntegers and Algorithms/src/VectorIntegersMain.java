@@ -74,8 +74,13 @@ public class VectorIntegersMain {
 		// in the same order and consecutive
 		// from any position in the second. If true, return the position of the first
 		// time they appear
+		
+		vI1 = new VectorIntegers(new int[]{3, 4});
+		vI2 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
 
 		int pos1 = vI1.isSubVector(vI2);
+		
+		System.out.println(pos1);
 
 		// . . .
 	}

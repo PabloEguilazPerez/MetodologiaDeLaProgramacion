@@ -229,23 +229,26 @@ public class VectorIntegers {
 
 	public int isSubVector(VectorIntegers vI2) {
 
-		boolean isSubVector = true;
+		if (this.isEmpty() || vI2.isEmpty() || this.length() > vI2.length()) {
+	        return -1; // If the current vector is larger or any vector is empty, no match is possible
+	    }
 
-		for (int i = 0; i <= vI2.length() - this.length(); i++) {
+	    for (int i = 0; i <= vI2.length() - this.length(); i++) {
+	        boolean match = true;
 
-			for (int j = 0; j < this.length(); j++) {
-				if (vI2.get(i + j) != this.get(j)) {
-					isSubVector = false;
-					break;
-				}
-			}
+	        for (int j = 0; j < this.length(); j++) {
+	            if (vI2.get(i + j) != this.get(j)) {
+	                match = false;
+	                break;
+	            }
+	        }
 
-			if (isSubVector) {
-				return i;
-			}
-		}
+	        if (match) {
+	            return i; // Returns the starting index of the match
+	        }
+	    }
 
-		return -1;
+	    return -1; // No match found
 
 	}
 }

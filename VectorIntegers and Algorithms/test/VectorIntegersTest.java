@@ -155,4 +155,19 @@ class VectorIntegersTest {
 	        assertEquals(false, v1.isSorted(),"");
 
 	    }
+	 
+	 @Test
+	    void testIsSubVector() {
+		 	VectorIntegers v1 = new VectorIntegers(new int[]{3, 4});
+	        VectorIntegers v2 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+	        assertEquals(2, v1.isSubVector(v2), "v1 debería comenzar en el índice 2 de v2");
+	        
+	        v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+	        v2 = new VectorIntegers(new int[]{2, 6, 7});
+	        assertEquals(-1, v1.isSubVector(v2), "v1 no debería estar contenido en v2");
+	        
+	        v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+	        v2 = new VectorIntegers(new int[]{8, 6, 7});
+	        assertEquals(-1, v1.isSubVector(v2), "v1 no debería estar contenido en v2");
+	    }
 }
