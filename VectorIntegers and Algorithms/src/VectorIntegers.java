@@ -225,4 +225,9 @@ public class VectorIntegers {
 		return true;
 	
 	}
+	
+
+	public int isSubVector(VectorIntegers vI2) {
+		return 0;
+	}
 }

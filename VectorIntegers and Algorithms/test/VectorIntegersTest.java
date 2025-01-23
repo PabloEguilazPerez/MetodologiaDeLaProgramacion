@@ -127,4 +127,32 @@ class VectorIntegersTest {
 	        v.sortVector();
 	        assertEquals("[ ]", v.toString(), "Empty vector should remain unchanged after sorting");
 	    }
+	 
+	 @Test
+	    void testIsContained() {
+	        VectorIntegers v1 = new VectorIntegers(new int[]{2, 3, 5});
+	        VectorIntegers v2 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+	        assertEquals(true, v1.isContained(v2), "");
+	        
+	        v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+	        v2 = new VectorIntegers(new int[]{2, 6, 7});
+	        assertEquals(false, v1.isContained(v2), "");
+	        
+	        v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+	        v2 = new VectorIntegers(new int[]{8, 6, 7});
+	        assertEquals(false, v1.isContained(v2), "r");
+	    }
+	 
+	 @Test
+	    void testIsSorted() {
+	        VectorIntegers v1 = new VectorIntegers(new int[]{1, 2, 3});
+	        assertEquals(true, v1.isSorted(),"");
+	        
+	        v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+	        assertEquals(true, v1.isSorted(),"");
+	        
+	        v1 = new VectorIntegers(new int[]{6, 3, 4, 5});
+	        assertEquals(false, v1.isSorted(),"");
+
+	    }
 }

@@ -62,20 +62,20 @@ public class VectorIntegersMain {
 
 		// 6.- Check if a vector is sorted
 
-		boolean h1 = vOI.isSorted();
+		boolean h1 = vI1.isSorted();
 
 		// 7.- Check if a sorted vector contains a value x (dichotomic search) and if
 		// true return a position in which x is
 
-		// int pos = vOI.dichotomicSearch(23);
-		// System.out.println(pos);
+		//int pos = vI1.dichotomicSearch(23);
+		//System.out.println(pos);
 
 		// 8.- Tell if the values of the vector appear in another
 		// in the same order and consecutive
 		// from any position in the second. If true, return the position of the first
 		// time they appear
 
-		// int pos1 = vOI1.isSubVector(vOI2);
+		int pos1 = vI1.isSubVector(vI2);
 
 		// . . .
 	}
