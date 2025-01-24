@@ -230,7 +230,7 @@ public class VectorIntegers {
 	public int isSubVector(VectorIntegers vI2) {
 
 		if (this.isEmpty() || vI2.isEmpty() || this.length() > vI2.length()) {
-	        return -1; // If the current vector is larger or any vector is empty, no match is possible
+	        return -1;
 	    }
 
 	    for (int i = 0; i <= vI2.length() - this.length(); i++) {
@@ -244,11 +244,11 @@ public class VectorIntegers {
 	        }
 
 	        if (match) {
-	            return i; // Returns the starting index of the match
+	            return i;
 	        }
 	    }
 
-	    return -1; // No match found
+	    return -1;
 
 	}
 }
