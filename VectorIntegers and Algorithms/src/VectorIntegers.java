@@ -188,7 +188,21 @@ public class VectorIntegers {
 	 */
 	public void sortVector() {
 		// TODO
-		Arrays.sort(data);
+		
+		//Arrays.sort(data);
+		
+		int aux;
+		
+		for (int i = 1; i < data.length - 1; i++) {
+			for (int j = 0; j < (data.length - i); j++) {
+				if (data[j] > data[j + 1]) {
+					aux = data[j];
+					data[j] = data[j + 1];
+					data[j + 1] = aux;
+				}
+			}
+		}
+		
 	}
 	
 	
