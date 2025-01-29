@@ -19,7 +19,7 @@ class BicycleDemo {
           bike2.speedUp(10);
           bike2.setGear(2);
           bike2.setCadence(40);
-          bike2.speedUp(10);
+          bike2.speedUp(10); 
           bike2.setGear(3);
           bike2.printStates();
           
