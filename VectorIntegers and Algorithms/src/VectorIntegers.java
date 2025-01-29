@@ -249,6 +249,7 @@ public class VectorIntegers {
 	        if (match) {
 	            return i;
 	        }
+	        
 	    }
 
 	    return -1;

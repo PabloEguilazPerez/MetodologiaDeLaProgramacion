@@ -129,32 +129,32 @@ class VectorIntegersTest {
 	    }
 	 
 	 @Test
-	    void testIsContained() {
-	        VectorIntegers v1 = new VectorIntegers(new int[]{2, 3, 5});
-	        VectorIntegers v2 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
-	        assertEquals(true, v1.isContained(v2), "");
-	        
-	        v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
-	        v2 = new VectorIntegers(new int[]{2, 6, 7});
-	        assertEquals(false, v1.isContained(v2), "");
-	        
-	        v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
-	        v2 = new VectorIntegers(new int[]{8, 6, 7});
-	        assertEquals(false, v1.isContained(v2), "r");
-	    }
-	 
-	 @Test
-	    void testIsSorted() {
-	        VectorIntegers v1 = new VectorIntegers(new int[]{1, 2, 3});
-	        assertEquals(true, v1.isSorted(),"");
-	        
-	        v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
-	        assertEquals(true, v1.isSorted(),"");
-	        
-	        v1 = new VectorIntegers(new int[]{6, 3, 4, 5});
-	        assertEquals(false, v1.isSorted(),"");
+		 void testIsContained() {
+		     VectorIntegers v1 = new VectorIntegers(new int[]{2, 3, 5});
+		     VectorIntegers v2 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+		     assertEquals(true, v1.isContained(v2), "v1 debería estar contenido en v2");
+		     
+		     v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+		     v2 = new VectorIntegers(new int[]{2, 6, 7});
+		     assertEquals(false, v1.isContained(v2), "v1 no debería estar contenido en v2");
+		     
+		     v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+		     v2 = new VectorIntegers(new int[]{8, 6, 7});
+		     assertEquals(false, v1.isContained(v2), "v1 no debería estar contenido en v2");
+		 }
 
-	    }
+	 @Test
+		 void testIsSorted() {
+		     VectorIntegers v1 = new VectorIntegers(new int[]{1, 2, 3});
+		     assertEquals(true, v1.isSorted(), "v1 debería estar ordenado");
+		     
+		     v1 = new VectorIntegers(new int[]{1, 2, 3, 4, 5});
+		     assertEquals(true, v1.isSorted(), "v1 debería estar ordenado");
+		     
+		     v1 = new VectorIntegers(new int[]{6, 3, 4, 5});
+		     assertEquals(false, v1.isSorted(), "v1 no debería estar ordenado");
+		 }
+
 	 
 	 @Test
 	    void testIsSubVector() {
