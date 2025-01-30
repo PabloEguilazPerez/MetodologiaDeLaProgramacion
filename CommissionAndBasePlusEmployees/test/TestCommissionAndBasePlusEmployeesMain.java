@@ -41,7 +41,7 @@ class TestCommissionAndBasePlusEmployeesMain {
         assertEquals(2000.0, result, 0.001, "The maximum earnings should be 2000.0");
     }
 
-    
+     
 
 
     @Test
