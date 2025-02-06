@@ -56,7 +56,7 @@ public class BasePlusCommissionEmployee
    public void setGrossSales( double sales )
    {
 	   e.setGrossSales(( sales < 0.0 ) ? 0.0 : sales);
-   } // end method setGrossSales
+   }
 
    // return gross sales amount
    public double getGrossSales()
