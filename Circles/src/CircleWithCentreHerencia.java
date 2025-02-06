@@ -10,14 +10,6 @@ public class CircleWithCentreHerencia extends Circle {
 
 	}
 
-	public double getRadius() {
-		return this.getRadius();
-	}
-
-	public void setRadius(double r) {
-		this.setRadius(r);
-	}
-
 	public Point getCentre() {
 		return center;
 	}
@@ -29,14 +21,6 @@ public class CircleWithCentreHerencia extends Circle {
 	public void setCentre(int x, int y) {
 		center.setX(x);
 		center.setY(y);
-	}
-
-	public double perimeter() {
-		return this.perimeter();
-	}
-
-	public double area() {
-		return this.area();
 	}
 
 	@Override
