@@ -98,7 +98,7 @@ public class CommissionAndBasePlusEmployeesMain {
 			}
 		}
 
-		return sueldoMasAlto.earnings() > sueldoMasAltoPlus.earnings() ? sueldoMasAlto.earnings() : sueldoMasAltoPlus.earnings() ;
+		return sueldoMasAlto.earnings() > sueldoMasAltoPlus.earnings() ? sueldoMasAlto.earnings() : sueldoMasAltoPlus.earnings();
 
 	}
 }
