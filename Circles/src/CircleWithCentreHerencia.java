@@ -1,47 +1,47 @@
 
-public class CircleWithCentreHerencia extends Point {
+public class CircleWithCentreHerencia extends Circle {
 	
-	private Circle circle;
+	private Point center;
 
 	public CircleWithCentreHerencia(int x, int y, double r) {
 
-		super(x, y);
-		circle = new Circle(r);
+		super(r);
+		center = new Point(x, y);
 
 	}
 
 	public double getRadius() {
-		return circle.getRadius();
+		return this.getRadius();
 	}
 
 	public void setRadius(double r) {
-		circle.setRadius(r);
+		this.setRadius(r);
 	}
 
 	public Point getCentre() {
-		return this.getCentre();
+		return center;
 	}
 
 	public void setCentre(Point p) {
-		this.setCentre(p);
+		center = p;
 	}
 
 	public void setCentre(int x, int y) {
-		this.setX(x);
-		this.setY(y);
+		center.setX(x);
+		center.setY(y);
 	}
 
 	public double perimeter() {
-		return circle.perimeter();
+		return this.perimeter();
 	}
 
 	public double area() {
-		return circle.area();
+		return this.area();
 	}
 
 	@Override
 	public String toString() {
-		return "CircleWithCentre [c=" + circle + ", p=" + this.getCentre() + "]";
+		return "CircleWithCentre [c=" + this + ", p=" + center + "]";
 	}
 
 	public static boolean overlaps(CircleWithCentre c1, CircleWithCentre c2) {
