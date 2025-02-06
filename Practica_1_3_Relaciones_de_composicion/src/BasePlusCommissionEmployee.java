@@ -13,8 +13,6 @@ public class BasePlusCommissionEmployee
    {
       // implicit call to Object constructor occurs here
 	  e = new CommissionEmployee(first, last, ssn, sales, rate);
-      setGrossSales( sales ); // validate and store gross sales
-      setCommissionRate( rate ); // validate and store commission rate
       setBaseSalary( salary ); // validate and store base salary
    } // end six-argument BasePlusCommissionEmployee constructor
 
