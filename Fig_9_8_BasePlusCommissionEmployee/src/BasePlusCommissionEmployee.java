@@ -10,9 +10,13 @@ public class BasePlusCommissionEmployee extends CommissionEmployee
       String ssn, double sales, double rate, double salary )
    {
       // explicit call to superclass CommissionEmployee constructor
-      super( first, last, ssn, sales, rate );
+      super( first, last, ssn, sales, rate);
+      setFirstName(first);
+      setLastName(last);
+      setSocialSecurityNumber(ssn);
+      setGrossSales(sales);
+      setBaseSalary(salary);
 
-      setBaseSalary( salary ); // validate and store base salary
    } // end six-argument BasePlusCommissionEmployee constructor
    
    // set base salary
@@ -32,7 +36,8 @@ public class BasePlusCommissionEmployee extends CommissionEmployee
    public double earnings()
    {
       // not allowed: commissionRate and grossSales private in superclass
-      return getBaseSalary() + ( getCommissionRate() * getGrossSales() );
+	  return getBaseSalary() + super.earnings();
+      //return getBaseSalary() + (commissionRate * grossSales );
    } // end method earnings
 
    // return String representation of BasePlusCommissionEmployee

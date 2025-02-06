@@ -6,8 +6,8 @@ public class CommissionEmployee extends Object
    private String firstName;
    private String lastName;
    private String socialSecurityNumber;
-   private double grossSales; // gross weekly sales
-   private double commissionRate; // commission percentage
+   protected double grossSales; // gross weekly sales
+   protected double commissionRate; // commission percentage
 
    // five-argument constructor
    public CommissionEmployee( String first, String last, String ssn, 
