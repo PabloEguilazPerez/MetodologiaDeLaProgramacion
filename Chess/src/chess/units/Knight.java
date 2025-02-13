@@ -12,6 +12,9 @@ import chess.utils.Position;
  * @author Juan Luis Mateo
  *
  */
+
+// Knight: Caballo
+
 public class Knight {
 	
 	private Position pos;
