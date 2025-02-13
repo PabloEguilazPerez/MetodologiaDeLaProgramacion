@@ -82,7 +82,11 @@ public class Board {
 	 * @param p Knight to take out of the board
 	 */
 	public void removePiece(Knight p) {
-		// TODO
+		if (p.getPosition() != null) {
+			// it is taken out
+			getSquare(p.getPosition()).setNoPiece();
+			p.setPosition(null);
+		}
 	}
 	
 	/**
@@ -142,8 +146,16 @@ public class Board {
 	 *         or it wan't valid
 	 */
 	public boolean movePiece(Knight p, Position pos) {
-		// TODO
-		return false;
+		if (freeSquare(pos)) {
+			// remove the king from the current square
+			removePiece(p);
+			// set the king to the new square
+			p.setPosition(pos);
+			getSquare(pos).setPiece(p);
+
+			return true; // it could be moved
+		} else
+			return false; // it couldn't be moved
 	}
 	
 	/**

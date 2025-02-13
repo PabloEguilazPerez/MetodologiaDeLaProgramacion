@@ -98,24 +98,25 @@ public class Knight {
 	 */
 	private DynamicVectorPosition generatePossiblePositions(Board currentBoard) {
 		DynamicVectorPosition positions = new DynamicVectorPosition();
-
+		
 		// TODO
 		// S -> S -> E
-
+		positions.add(this.getPosition().south().south().east());
 		// S -> S -> W
-
+		positions.add(this.getPosition().south().south().west());
 		// N -> N -> E
-
+		positions.add(this.getPosition().north().north().east());
 		// N -> N -> W
-
+		positions.add(this.getPosition().north().north().west());
 		// E -> E -> N
-
+		positions.add(this.getPosition().east().east().north());
 		// E -> E -> S
-
+		positions.add(this.getPosition().east().east().south());
 		// W -> W -> N
-
+		positions.add(this.getPosition().west().west().north());
 		// W -> W -> S
-
+		positions.add(this.getPosition().west().west().south());
+		
 		return positions;
 	}
 

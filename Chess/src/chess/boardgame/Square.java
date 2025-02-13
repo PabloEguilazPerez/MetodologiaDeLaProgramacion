@@ -15,6 +15,7 @@ import chess.units.Knight;
 
 public class Square {
 	private King kingPiece; // the king piece that is in this square
+	private Knight knightPiece;
 	// TODO
 	;// the knight piece that is in this square
 
@@ -24,6 +25,7 @@ public class Square {
 	public Square() {
 		kingPiece = null;
 		// TODO
+		knightPiece = null;
 	}
 
 	/**
@@ -37,7 +39,7 @@ public class Square {
 
 	public Knight getKnightPiece() {
 		// TODO
-		return null;
+		return knightPiece;
 	}
 
 	/**
@@ -51,12 +53,13 @@ public class Square {
 	}
 
 	public void setPiece(Knight piece) {
-		// TODO
+		setNoPiece();
+		this.knightPiece = piece;
 	}
 
 	public void setNoPiece() {
 		this.kingPiece = null;
-		// TODO
+		this.knightPiece = null;
 	}
 
 	/**
@@ -66,7 +69,7 @@ public class Square {
 	 */
 	public boolean empty() {
 		// TODO
-		return (kingPiece == null);
+		return (kingPiece == null) && (knightPiece == null);
 	}
 
 	/**
@@ -76,8 +79,11 @@ public class Square {
 	 */
 	@Override
 	public String toString() {
-		if (kingPiece != null)
+		if (kingPiece != null) {
 			return String.format("%c", kingPiece.toChar());
+		} else if (knightPiece != null) {
+			return String.format("%c", knightPiece.toChar());
+		}
 		// TODO
 		return "-";
 
