@@ -15,88 +15,21 @@ import chess.utils.Position;
 
 // Knight: Caballo
 
-public class Knight {
+public class Knight extends ChessPiece {
 	
-	private Position pos;
-
 	/**
 	 * Constructor
 	 * 
 	 */
 	public Knight() {
-		this.pos = null;
-	}
-
-	/**
-	 * Get the position in the board
-	 * 
-	 * @return the position in the board
-	 */
-	public Position getPosition() {
-		return pos;
-	}
-
-	/**
-	 * Set the position of the piece in the board
-	 * 
-	 * @param pos new position of the piece in the board
-	 */
-	public void setPosition(Position pos) {
-		this.pos = pos;
+		
 	}
 
 	public char toChar() {
-		// TODO
 		return 'N';
 	}
-
-	/**
-	 * Returns an array with the valid squares where a Knight can move directly from
-	 * its current position:(NNW, NNE, WWN, WWS, EEN, EES, SSW and SSE)
-	 * 
-	 * @param currentBoard the board whith the Pieces
-	 * @return the vector of positions (possibly free) where it can move
-	 */
-	public DynamicVectorPosition validPositions(Board currentBoard) {
-
-		DynamicVectorPosition positions = null;
-
-		positions = generatePossiblePositions(currentBoard);
-
-		filterValidPositions(currentBoard, positions);
-
-		return positions;
-	}
-
-	/**
-	 * Given a board and a vector of positions, eliminate the invalid positions
-	 * w.r.t. the board
-	 * 
-	 * @param board     the board
-	 * @param positions the vector of positions
-	 */
-	private void filterValidPositions(Board board, DynamicVectorPosition positions) {
-		int x = 0;
-		while (x < positions.length()) {
-			if (!board.freeSquare(positions.get(x)))
-				positions.remove(x);
-			else
-				x++;
-		}
-	}
-
-	@Override
-	public String toString() {
-		return "Knight [pos=" + pos + "]";
-	}
-
-	/**
-	 * Generate all possible positions after all possible movements of the Piece
-	 * 
-	 * @param currentBoard the board
-	 * @return the dynamic vector of XYLocations of possible movements
-	 */
-	private DynamicVectorPosition generatePossiblePositions(Board currentBoard) {
+	
+	protected DynamicVectorPosition generatePossiblePositions(Board currentBoard) {
 		DynamicVectorPosition positions = new DynamicVectorPosition();
 		
 		// TODO
@@ -119,5 +52,11 @@ public class Knight {
 		
 		return positions;
 	}
+
+	@Override
+	public String toString() {
+		return "Knight []";
+	}
+	
 
 }
