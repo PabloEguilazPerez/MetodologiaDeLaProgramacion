@@ -46,6 +46,6 @@ public abstract class ChessPiece {
 
 	protected abstract DynamicVectorPosition generatePossiblePositions(Board currentBoard);
 	
-	protected abstract char toChar();
+	public abstract char toChar();
 	
 }
