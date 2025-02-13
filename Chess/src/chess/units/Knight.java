@@ -13,6 +13,7 @@ import chess.utils.Position;
  *
  */
 public class Knight {
+	
 	private Position pos;
 
 	/**
@@ -43,7 +44,7 @@ public class Knight {
 
 	public char toChar() {
 		// TODO
-		return '?';
+		return 'N';
 	}
 
 	/**
@@ -79,6 +80,11 @@ public class Knight {
 			else
 				x++;
 		}
+	}
+
+	@Override
+	public String toString() {
+		return "Knight [pos=" + pos + "]";
 	}
 
 	/**
