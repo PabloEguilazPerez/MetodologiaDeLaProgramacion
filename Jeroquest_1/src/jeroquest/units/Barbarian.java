@@ -17,6 +17,9 @@ public class Barbarian extends Character {
 	protected static final int ATTACK = 1;
 	protected static final int DEFENCE = 2;
 	protected static final int BODY = 8;
+	
+	private Weapon weapon;
+	
 
 	/**
 	 * Create a barbarian with its name
@@ -26,6 +29,8 @@ public class Barbarian extends Character {
 	public Barbarian(String itsName) {
 		// setting the attributes with the initial values
 		super(itsName, MOVEMENT, ATTACK, DEFENCE, BODY);
+		weapon = new Weapon("Espada ancha", 3);
+		
 	}
 
 	/**
@@ -52,6 +57,13 @@ public class Barbarian extends Character {
 		}
 
 		return impacts;
+	}
+	
+	@Override
+	public int getAttack() {
+		
+		return weapon != null ? weapon.getAttack() : super.getAttack();
+		
 	}
 
 	/**
