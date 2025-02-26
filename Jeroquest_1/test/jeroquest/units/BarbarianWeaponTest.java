@@ -24,13 +24,15 @@ public class BarbarianWeaponTest {
 		// Weapon.toString() returns the attack of the weapon
 		assertTrue(weapon.toString().indexOf("10")>-1);
 	}
-
+	
 	@Test
 	void testWeaponAttribute() {
 		Barbarian conan = new Barbarian("Conan");
 		
 		assertEquals(3, conan.getWeapon().getAttack());
 		assertEquals("Broadsword", conan.getWeapon().getName());
+		
+		System.out.println(conan.toString());
 		// Barbarian.toString() returns the name of the weapon
 		assertTrue(conan.toString().indexOf("Broadsword")>-1);
 		// Barbarian.toString() returns the attack of the weapon

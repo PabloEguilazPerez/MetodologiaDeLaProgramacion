@@ -80,21 +80,27 @@ public class JeroquestMain {
 			barbaros[i] = new Barbarian("Barbaro " + i);
 		}
 
-		int nRondas = 1;
+		int nRondas = 5;
 
 		Random rand = new Random();
 
-		System.out.println("=================== Comienza ronda ===================");
+		System.out.println("=================== Comienza juego ===================");
 
 		// Juego
 		for (int ronda = 0; ronda < nRondas; ronda++) {
+			
+			System.out.println("=================== Comienza ronda " + (ronda + 1) + " ===================");
 
 			ronda(barbaros, momias, ronda, nElementos);
+			
+			System.out.println("");
 
-			System.out.println("=================== Fin " + ronda + " ===================");
-
-			System.out.println("Barbaros restantes: " + barbarosVivos(barbaros));
-			System.out.println("Momias restantes: " + momiasVivas(momias));
+			System.out.println("Barbaro con mas vida: " + barbaroMasVida(barbaros));
+			System.out.println("Momia con mas vida: " + momiaMasVida(momias));
+			
+			System.out.println("");
+			
+			System.out.println("=================== Fin ronda " + (ronda + 1) + " ===================");
 
 			if (barbarosVivos(barbaros) == 0) {
 				System.out.println("Murieron todos los barbaros");
@@ -107,7 +113,9 @@ public class JeroquestMain {
 			}
 
 		}
-
+		
+		System.out.println("Barbaros restantes: " + barbarosVivos(barbaros));
+		System.out.println("Momias restantes: " + momiasVivas(momias));
 		
 		mostrar(barbaros, momias);
 
@@ -118,14 +126,17 @@ public class JeroquestMain {
 		for (int i = 0; i < nElementos; i++) {
 
 			if (barbaros[i].isAlive()) {
-				int objetivo = Dice.roll(nElementos) - 1;
+				//int objetivo = Dice.roll(nElementos) - 1;
+				int objetivo = momiaMasVida(momias);
+				
 				if (momias[objetivo].isAlive()) {
 					momias[objetivo].defend(barbaros[i].attack());
 				}
 			}
 
 			if (momias[i].isAlive()) {
-				int objetivo = Dice.roll(nElementos) - 1;
+				//int objetivo = Dice.roll(nElementos) - 1;
+				int objetivo = barbaroMasVida(barbaros);
 				if (barbaros[objetivo].isAlive()) {
 					barbaros[objetivo].defend(momias[i].attack());
 				}
@@ -148,7 +159,7 @@ public class JeroquestMain {
 		return v;
 
 	}
-
+	
 	public static int momiasVivas(Mummy[] momias) {
 
 		int v = 0;
@@ -165,9 +176,44 @@ public class JeroquestMain {
 
 	public static int barbaroMasVida(Barbarian[] barbaros) {
 
-		return 0;
+		int max = barbaros.length > 0 ? barbaros[0].getBody() : 0;
+		int index = 0;
+		
+		for (int i = 0; i < barbaros.length; i++) {
+			
+			if (max < barbaros[i].getBody()) {
+				
+				max = barbaros[i].getBody();
+				index = i;
+				
+			}
+			
+		}
+		
+		return index;
 
 	}
+	
+	public static int momiaMasVida(Mummy[] momias) {
+		
+		int max = momias.length > 0 ? momias[0].getBody() : 0;
+		int index = 0;
+		
+		for (int i = 0; i < momias.length; i++) {
+			
+			if (max < momias[i].getBody()) {
+				
+				max = momias[i].getBody();
+				index = i;
+				
+			}
+			
+		}
+		
+		return index;
+		
+	}
+
 
 	public static void mostrar(Barbarian[] barbaros, Mummy[] momias) {
 
@@ -183,6 +229,7 @@ public class JeroquestMain {
 			}
 		}
 		
+		
 		Mummy aux2;
 
 		for (int i = 1; i < momias.length - 1; i++) {
@@ -194,12 +241,15 @@ public class JeroquestMain {
 				}
 			}
 		}
+
 		
-		for (int i = 0; i < barbaros.length - 1; i++) {
+		System.out.println("Barbaros:");
+		for (int i = 0; i < barbaros.length; i++) {
 			System.out.println("Barbaro - " + barbaros[i].getName() + " Vida: " + barbaros[i].getBody());
 		}
 		
-		for (int i = 0; i < momias.length - 1; i++) {
+		System.out.println("Momias:");
+		for (int i = 0; i < momias.length; i++) {
 			System.out.println("Momias - " + momias[i].getName() + " Vida: " + momias[i].getBody());
 		}
 

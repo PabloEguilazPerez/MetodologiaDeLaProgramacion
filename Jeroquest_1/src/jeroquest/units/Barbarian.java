@@ -29,7 +29,7 @@ public class Barbarian extends Character {
 	public Barbarian(String itsName) {
 		// setting the attributes with the initial values
 		super(itsName, MOVEMENT, ATTACK, DEFENCE, BODY);
-		weapon = new Weapon("Espada ancha", 3);
+		weapon = new Weapon("Broadsword", 3);
 		
 	}
 
@@ -65,14 +65,18 @@ public class Barbarian extends Character {
 		return weapon != null ? weapon.getAttack() : super.getAttack();
 		
 	}
-
-	/**
-	 * Generate a printable String version of the object (overriden method)
-	 * 
-	 * @return the barbarian's printable info as a String
-	 */
+	
+	@Override
 	public String toString() {
-		return String.format("The barbarian: %s", super.toString());
+		return "Barbarian [weapon=" + weapon + "]";
+	}
+
+	public Weapon getWeapon() {
+		return weapon;
+	}
+	
+	public void setWeapon(Weapon w) {
+		weapon = w;
 	}
 
 }
