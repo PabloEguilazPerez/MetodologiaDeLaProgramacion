@@ -31,8 +31,6 @@ public class BarbarianWeaponTest {
 		
 		assertEquals(3, conan.getWeapon().getAttack());
 		assertEquals("Broadsword", conan.getWeapon().getName());
-		
-		System.out.println(conan.toString());
 		// Barbarian.toString() returns the name of the weapon
 		assertTrue(conan.toString().indexOf("Broadsword")>-1);
 		// Barbarian.toString() returns the attack of the weapon
