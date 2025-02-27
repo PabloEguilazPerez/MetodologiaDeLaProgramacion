@@ -11,7 +11,7 @@ import jeroquest.utils.Dice;
  * 
  */
 
-public class Barbarian extends Character {
+public class Barbarian extends Hero {
 	// initial value for the attributes
 	protected static final int MOVEMENT = 7;
 	protected static final int ATTACK = 1;
@@ -28,7 +28,13 @@ public class Barbarian extends Character {
 	 */
 	public Barbarian(String itsName) {
 		// setting the attributes with the initial values
-		super(itsName, MOVEMENT, ATTACK, DEFENCE, BODY);
+		this(itsName, "no-name");
+		
+	}
+	
+	public Barbarian(String itsName, String playerName) {
+		// setting the attributes with the initial values
+		super(itsName, MOVEMENT, ATTACK, DEFENCE, BODY, playerName);
 		weapon = new Weapon("Broadsword", 3);
 		
 	}

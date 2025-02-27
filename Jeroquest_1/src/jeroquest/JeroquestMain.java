@@ -214,7 +214,6 @@ public class JeroquestMain {
 		
 	}
 
-
 	public static void mostrar(Barbarian[] barbaros, Mummy[] momias) {
 
 		Barbarian aux;
