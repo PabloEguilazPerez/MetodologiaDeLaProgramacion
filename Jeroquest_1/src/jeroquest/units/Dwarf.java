@@ -12,12 +12,11 @@ public class Dwarf extends Hero {
 	public Dwarf(String itsName) {
 		// setting the attributes with the initial values
 		this(itsName, "no-name");
-
 	}
 	
 	public Dwarf(String itsName, String playerName) {
 		// setting the attributes with the initial values
-		super(itsName, MOVEMENT, ATTACK, DEFENCE, BODY, playerName);
+		super(itsName, MOVEMENT, ATTACK, DEFENCE, BODY, playerName, new Weapon("Hand axe", 2));
 
 	}
 
@@ -40,4 +39,5 @@ public class Dwarf extends Hero {
 
 		return impacts;
 	}
+	
 }

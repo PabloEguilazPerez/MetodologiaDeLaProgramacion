@@ -18,9 +18,6 @@ public class Barbarian extends Hero {
 	protected static final int DEFENCE = 2;
 	protected static final int BODY = 8;
 	
-	private Weapon weapon;
-	
-
 	/**
 	 * Create a barbarian with its name
 	 * 
@@ -33,9 +30,7 @@ public class Barbarian extends Hero {
 	}
 	
 	public Barbarian(String itsName, String playerName) {
-		// setting the attributes with the initial values
-		super(itsName, MOVEMENT, ATTACK, DEFENCE, BODY, playerName);
-		weapon = new Weapon("Broadsword", 3);
+		super(itsName, MOVEMENT, ATTACK, DEFENCE, BODY, playerName, new Weapon("Broadsword", 3));
 		
 	}
 
@@ -66,23 +61,8 @@ public class Barbarian extends Hero {
 	}
 	
 	@Override
-	public int getAttack() {
-		
-		return weapon != null ? weapon.getAttack() : super.getAttack();
-		
-	}
-	
-	@Override
 	public String toString() {
-		return "Barbarian [weapon=" + weapon + "]";
-	}
-
-	public Weapon getWeapon() {
-		return weapon;
-	}
-	
-	public void setWeapon(Weapon w) {
-		weapon = w;
+		return "Barbarian [weapon=" + super.getWeapon() + "]";
 	}
 
 }
