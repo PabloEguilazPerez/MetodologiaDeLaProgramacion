@@ -26,13 +26,11 @@ public class Barbarian extends Hero {
 	public Barbarian(String itsName) {
 		// setting the attributes with the initial values
 		this(itsName, "no-name");
-		
 	}
 	
 	public Barbarian(String itsName, String playerName) {
 		super(itsName, MOVEMENT, ATTACK, DEFENCE, BODY, playerName, new Weapon("Broadsword", 3));
-		
-	}
+	} 
 
 	/**
 	 * The barbarian defends itself from an attack (Implementing an inherited
