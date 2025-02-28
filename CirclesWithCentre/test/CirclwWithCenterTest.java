@@ -5,33 +5,47 @@ import org.junit.jupiter.api.Test;
 
 class CirclwWithCenterTest {
 
+	CircleWithCentre c1, c2;
+
 	@BeforeEach
 	void setUp() throws Exception {
+
+		c1 = new CircleWithCentre(2, 4, 6.0);
+		c2 = new CircleWithCentre(2, 40, 6.0);
+
 	}
 
 	@Test
 	void testCircleWithCentre() {
-		fail("Not yet implemented");
+		assertNotNull(c1, "");
+		assertEquals(2, c1.getCentre().getX(), "");
+		assertEquals(4, c1.getCentre().getY(), "");
+		assertEquals(6.0, c1.getRadius(), "");
 	}
 
 	@Test
 	void testGetCentre() {
-		fail("Not yet implemented");
+		assertEquals(new Point(2, 4), c1.getCentre());
+		assertEquals(new Point(2, 40), c2.getCentre());
 	}
 
 	@Test
 	void testSetCentreIntInt() {
-		fail("Not yet implemented");
+		c1.setCentre(5, 5);
+		assertEquals(new Point(5, 5), c1.getCentre());
 	}
 
 	@Test
 	void testSetCentrePoint() {
-		fail("Not yet implemented");
+		Point p = new Point(8, 8);
+		c1.setCentre(p);
+		assertEquals(p, c1.getCentre());
 	}
 
 	@Test
 	void testOverlaps() {
-		fail("Not yet implemented");
+		assertTrue(CircleWithCentre.overlaps(c1, c1));
+		assertFalse(CircleWithCentre.overlaps(c1, c2));
 	}
 
 	@Test
@@ -41,33 +55,40 @@ class CirclwWithCenterTest {
 
 	@Test
 	void testSetRadius() {
-		
-		CircleWithCentre c1 = new CircleWithCentre(1, 1, 6.0);
-		
+
 		c1.setRadius(10);
 		assertEquals(10, c1.getRadius());
-		
-		c1.setRadius(0);
+
+		c1.setRadius(-5);
 		assertEquals(0, c1.getRadius());
-		
-		c1.setRadius(-1);
-		assertEquals(0, c1.getRadius());
-		
+
 	}
 
 	@Test
 	void testGetRadius() {
-		fail("Not yet implemented");
+		
+		assertEquals(6.0, c1.getRadius());
+		
+		assertEquals(6.0, c2.getRadius());
+		
 	}
 
 	@Test
 	void testPerimeter() {
-		fail("Not yet implemented");
+		
+		assertEquals(37.69911184307752, c1.perimeter());
+		
+		assertEquals(37.69911184307752, c2.perimeter());
+		
 	}
 
 	@Test
 	void testArea() {
-		fail("Not yet implemented");
+		
+		assertEquals(113.09733552923255, c1.area());
+		
+		assertEquals(113.09733552923255, c2.area());
+		
 	}
 
 }
