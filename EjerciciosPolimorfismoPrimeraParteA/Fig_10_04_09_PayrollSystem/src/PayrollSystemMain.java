@@ -114,12 +114,12 @@ public class PayrollSystemMain
 	}
 
 	/**
-	/* @param employees un vector de trabajadores
-	/* @param inc lo que hay que incrementar commissionRate
-	/* @param toWhom entero que indica a quienes hay que cambiar
-	/* el valor: 0 a todos los que tienen este dato, 1 solo a los
-	/* de la clase CommissionEmployee, 2 solo a los de la clase
-	/* BasePlusCommissionEmployee
+	* @param employees un vector de trabajadores
+	* @param inc lo que hay que incrementar commissionRate
+	* @param toWhom entero que indica a quienes hay que cambiar
+	* el valor: 0 a todos los que tienen este dato, 1 solo a los
+	* de la clase CommissionEmployee, 2 solo a los de la clase
+	* BasePlusCommissionEmployee
 	 */
 	public static void changeCommissionRate( Employee[] employees, double inc, int toWhom){
 
