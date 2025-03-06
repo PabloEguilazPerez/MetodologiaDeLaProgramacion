@@ -49,6 +49,10 @@ public class PolymorphismMain
    } // end main
    
    public static CommissionEmployee earnsTheMost(CommissionEmployee[] v){
+	   
+	   if (v == null || v.length == 0){
+		   return null;
+	   }
 	  
 	   CommissionEmployee max = v[0];
 	   for (int i = 1; i < v.length; i++){
@@ -61,6 +65,10 @@ public class PolymorphismMain
    }
    
    public static void sortAscending(CommissionEmployee[] v) {
+	   
+	   if (v == null || v.length == 0){
+		   return;
+	   }
 	   
 	   CommissionEmployee temp;
 	   
