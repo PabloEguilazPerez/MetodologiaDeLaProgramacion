@@ -78,7 +78,7 @@ public class PayrollSystemMain
 	} // end main
 
 	public static Employee earnsTheMost(Employee[] employees){
-		
+
 		if (employees == null || employees.length == 0 ){
 			return null;
 		}
@@ -94,7 +94,7 @@ public class PayrollSystemMain
 	}
 
 	public static void sortAscending(Employee[] v) {
-		
+
 		if (v == null || v.length == 0){
 			return;
 		}
@@ -112,7 +112,7 @@ public class PayrollSystemMain
 		}
 
 	}
-	
+
 	/**
 	/* @param employees un vector de trabajadores
 	/* @param inc lo que hay que incrementar commissionRate
@@ -120,34 +120,41 @@ public class PayrollSystemMain
 	/* el valor: 0 a todos los que tienen este dato, 1 solo a los
 	/* de la clase CommissionEmployee, 2 solo a los de la clase
 	/* BasePlusCommissionEmployee
-	*/
+	 */
 	public static void changeCommissionRate( Employee[] employees, double inc, int toWhom){
-		
+
 		if (employees == null || employees.length == 0){
 			return;
 		}
-		
-		for (Employee employee : employees){
-			if (toWhom == 0){
-				if (employee instanceof CommissionEmployee){
-					((CommissionEmployee) employee).setCommissionRate(inc);
-				}
-				else if (employee instanceof BasePlusCommissionEmployee){
-					((BasePlusCommissionEmployee) employee).setCommissionRate(inc);
-				}
-			}
-			else if (toWhom == 1){
-				if (employee instanceof CommissionEmployee){
-					((CommissionEmployee) employee).setCommissionRate(inc);
-				}
-			}
-			else if (toWhom == 2){
-				if (employee instanceof BasePlusCommissionEmployee){
-					((BasePlusCommissionEmployee) employee).setCommissionRate(inc);
-				}
-			}
-		}
-		
+
+		if (toWhom < 0 || toWhom > 2) {
+	        return;
+	    }
+
+		for (Employee employee : employees) {
+	        if (employee instanceof CommissionEmployee) {
+	            
+	            if (toWhom == 0) {
+	                ((CommissionEmployee) employee).setCommissionRate(
+	                    ((CommissionEmployee) employee).getCommissionRate() + inc
+	                );
+	            }
+	            
+	            else if (toWhom == 1 && !(employee instanceof BasePlusCommissionEmployee)) {
+	                ((CommissionEmployee) employee).setCommissionRate(
+	                    ((CommissionEmployee) employee).getCommissionRate() + inc
+	                );
+	            }
+	        }
+
+	        
+	        if (toWhom == 2 && employee instanceof BasePlusCommissionEmployee) {
+	            ((BasePlusCommissionEmployee) employee).setCommissionRate(
+	                ((BasePlusCommissionEmployee) employee).getCommissionRate() + inc
+	            );
+	        }
+	    }
+
 	}
 
 } // end class PayrollSystemTest
