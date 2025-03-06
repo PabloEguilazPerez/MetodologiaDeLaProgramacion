@@ -17,7 +17,20 @@ class BicycleDemo {
 		//bike02.printStates();
 		//bike03.printStates();
 		
-		Bicycle [] vectBikes = {bike01, bike02, bike03};
+		Bicycle [] vectBikes = {bike01, bike02, bike03, new MountainBike(30, 15, 7, "Front")};
+		
+		for (Bicycle bike : vectBikes){
+			
+			//((MountainBike) bike).getSuspension();
+			
+			if (bike instanceof MountainBike){
+				System.out.println(((MountainBike) bike).getSuspension());
+			} else if (bike instanceof RoadBike){
+				System.out.println(((RoadBike) bike).getTireWidth());
+			} else {
+				bike.printStates();
+			}
+		}
 		
 		for (int i = 0; i < vectBikes.length; i++){
 			System.out.format("%nBycicle [%d]:%n",i);

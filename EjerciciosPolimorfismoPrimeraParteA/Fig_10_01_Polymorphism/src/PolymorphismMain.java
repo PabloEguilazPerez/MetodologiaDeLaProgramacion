@@ -32,7 +32,50 @@ public class PolymorphismMain
       System.out.printf( "%s %s:\n\n%s\n", 
          "Call BasePlusCommissionEmployee's toString with superclass",
          "reference to subclass object", commissionEmployee2.toString() );
+      
+      CommissionEmployee[] employees = new CommissionEmployee[ 2 ]; 
+      employees[ 0 ] = commissionEmployee; 
+      employees[ 1 ] = basePlusCommissionEmployee; 
+      
+      System.out.println("\n\nMas gana \n");
+      System.out.println(earnsTheMost(employees) + "\n");
+      
+      sortAscending(employees);
+      System.out.println("\nOrdenados \n");
+      for (CommissionEmployee employee : employees){
+		  System.out.println(employee + "\n");
+	  }
+      
    } // end main
+   
+   public static CommissionEmployee earnsTheMost(CommissionEmployee[] v){
+	  
+	   CommissionEmployee max = v[0];
+	   for (int i = 1; i < v.length; i++){
+		   if (v[i].earnings() > max.earnings()){
+			   max = v[i];
+		   }
+	   }
+	   return max;
+	   
+   }
+   
+   public static void sortAscending(CommissionEmployee[] v) {
+	   
+	   CommissionEmployee temp;
+	   
+	   for (int i = 0; i < v.length; i++){
+		   for (int j = 0; j < v.length - 1; j++){
+			   if (v[j].earnings() > v[j+1].earnings()){
+				   temp = v[j];
+				   v[j] = v[j+1];
+				   v[j+1] = temp;
+			   }
+		   }
+	   }
+	   
+   }
+   
 } // end class PolymorphismTest
 
 /**************************************************************************
