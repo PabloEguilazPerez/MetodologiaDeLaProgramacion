@@ -57,6 +57,18 @@ public class Main {
 	 */
 	private static int estudiantesMaster(Personal[] vU, String master) {
 		int total = 0;
+		
+		for (Personal p : vU) {
+			
+			if (p instanceof EPostGrado) {
+				
+				if (p.getTituloPostgrado().getEquals(master)) {
+					total++;
+				}
+				
+			}
+			
+		}
 
 		return total;
 	}
