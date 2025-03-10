@@ -1,7 +1,7 @@
 
 
 /**
- * Clase abstracta que modela los atributos/métodos comunes a todos los Estudiantes
+ * Clase abstracta que modela los atributos/mï¿½todos comunes a todos los Estudiantes
  * @author puente
  *
  */
@@ -29,4 +29,11 @@ public abstract class Estudiante extends Personal{
 	public void setTasas(double tasas) {
 		this.tasas = tasas;
 	}
+
+	@Override
+	public double saldo() {
+		return this.getTasas();
+	}
+	
+	
 }

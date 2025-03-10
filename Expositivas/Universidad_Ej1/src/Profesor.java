@@ -78,6 +78,6 @@ public class Profesor extends Personal{
 
 	@Override
 	public double saldo() {
-		return -(this.getSalarioAnual() - this.getCotizacionAnual())
+		return -(this.getSalarioAnual() - this.getCotizacionAnual());
 	}
 }

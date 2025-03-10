@@ -42,7 +42,7 @@ public class Main {
 		for (Personal p: vU) {
 			
 			if (p instanceof Profesor) {
-				total += p.getSalarioAnual();
+				total += ((Profesor) p).saldo();
 			}
 			
 		}
@@ -69,6 +69,26 @@ public class Main {
 	 */
 	private static double cobroTotal(Personal[] vU) {
 		double total = 0;
+		
+		for (Personal p : vU) {
+			
+			/*
+			if (p instanceof Profesor) {
+				total += ((Profesor) p).getSalarioAnual();
+				
+			} else if (p instanceof PAS) {
+				total += ((Profesor) p).getSalarioAnual();
+			}
+			*/
+			
+			
+			
+			if (p instanceof Asalariado) {
+				total += ((Asalariado) p).getSalarioAnual();
+				
+			}
+			
+		}
 
 		return total;
 	}
