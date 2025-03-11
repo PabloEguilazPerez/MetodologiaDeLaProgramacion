@@ -62,7 +62,7 @@ public class Main {
 			
 			if (p instanceof EPostGrado) {
 				
-				if (p.getTituloPostgrado().getEquals(master)) {
+				if (((EPostGrado) p).getTituloPostgrado().equals(master)) {
 					total++;
 				}
 				
