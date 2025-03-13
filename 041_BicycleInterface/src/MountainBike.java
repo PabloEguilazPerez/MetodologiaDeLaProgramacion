@@ -4,29 +4,53 @@
  * 
  */
 
-public class MountainBike extends Bicycle{
-	
-  private String suspension;
+public class MountainBike implements Driveable {
 
-  public MountainBike(int startCadence, int startSpeed, int startGear, String suspensionType){
-    super();
-    this.setSuspension(suspensionType);
-  }
+	private String suspension;
 
-  public String getSuspension(){
-    return this.suspension;
-  }
+	public MountainBike(int startCadence, int startSpeed, int startGear, String suspensionType){
+		super();
+		this.setSuspension(suspensionType);
+	}
 
-  public void setSuspension(String suspensionType){
-    this.suspension = suspensionType;
-  }
+	public String getSuspension(){
+		return this.suspension;
+	}
 
-  public void printStates(){
-	System.out.println(" -- MountainBike -- ");  
-    super.printStates();
-    System.out.println("The MountainBike has a " + getSuspension()
-            + " suspension.");
-  }
+	public void setSuspension(String suspensionType){
+		this.suspension = suspensionType;
+	}
+
+	public void printStates(){
+		System.out.println(" -- MountainBike -- ");  
+		//super.printStates();
+		System.out.println("The MountainBike has a " + getSuspension()
+		+ " suspension.");
+	}
+
+	@Override
+	public void turnLeft(int amount) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void turnRight(int amount) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void speedUp(int increment) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void slowDown(int decrement) {
+		// TODO Auto-generated method stub
+
+	}
 } 
 
 
