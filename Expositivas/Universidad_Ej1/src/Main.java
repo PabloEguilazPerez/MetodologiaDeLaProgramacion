@@ -93,11 +93,8 @@ public class Main {
 			}
 			*/
 			
-			
-			
 			if (p instanceof Asalariado) {
 				total += ((Asalariado) p).getSalarioAnual();
-				
 			}
 			
 		}
@@ -110,6 +107,7 @@ public class Main {
 	cobran y luego los que no cobran.
 	 */
 	private static void ordenaPorCobro(Personal[] vU) {
+		
 	}
 
 
