@@ -1,10 +1,14 @@
 package jeroquest;
 
+import java.util.Random;
+
 import jeroquest.boardgame.Board;
 import jeroquest.boardgame.Dice;
 import jeroquest.units.Character;
 import jeroquest.utils.DynamicVectorPosition;
 import jeroquest.utils.Position;
+import jeroquest.units.Barbarian;
+import jeroquest.units.Mummy;
 
 /**
  * Main program to test the game Jeroquest 1.1
@@ -27,10 +31,24 @@ public class JeroquestMain {
 		// we build the board
 		Board theBoard = new Board(ROWS, COLS);
 
+		Random r = new Random();
+		
 		// We create a vector of pieces
 		Character[] pieces = new Character[NUM_PIECES];
 		for (int i = 0; i < pieces.length; i++) {
-			// Add to the vector a random piece
+			
+			switch (r.nextInt(2)) {
+			
+				case 0:
+					pieces[i] = new Barbarian("Barbarian" + i);
+					break;
+					
+				case 1:
+					pieces[i] = new Mummy("Mummy" + i);
+					break;
+					
+			}
+			
 		}
 
 		// move the pieces to the initial position

@@ -55,4 +55,9 @@ public class Mummy extends Character {
 
 		return impacts;
 	}
+
+	@Override
+	public char toChar() {
+		return 'M';
+	}
 }

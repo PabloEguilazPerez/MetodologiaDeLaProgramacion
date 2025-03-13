@@ -1,6 +1,10 @@
 package jeroquest.units;
 
+import jeroquest.boardgame.Board;
 import jeroquest.boardgame.Dice;
+import jeroquest.boardgame.Piece;
+import jeroquest.utils.DynamicVectorPosition;
+import jeroquest.utils.Position;
 
 /**
  * Programming Methodology Practice.
@@ -12,7 +16,7 @@ import jeroquest.boardgame.Dice;
  * 
  */
 
-public abstract class Character {
+public abstract class Character extends Piece {
 	// current attributes of a character
 	private int movement; // movement units per turn
 	private int attack; // total dices for an attack
@@ -138,6 +142,57 @@ public abstract class Character {
 				.format("%s (movement:%d attack:%d defence:%d body:%d)",
 						getName(), getMovement(), getAttack(), getDefence(),
 						getBody());
+	}
+
+	/**
+	* Returns a dynamic array with the valid squares where a Piece can
+	move directly from
+	* its current position
+	*
+	* @param currentBoard the board with the Pieces
+	* @return the vector of positions (possibly free) where it can move
+	*/
+	public DynamicVectorPosition validPositions(Board theBoard) {
+		
+		DynamicVectorPosition positions = new DynamicVectorPosition();
+
+		// N
+		if (theBoard.freeSquare(this.getPosition().north()))
+			positions.add(this.getPosition().north());
+		
+		// S
+		if (theBoard.freeSquare(this.getPosition().south()))
+			positions.add(this.getPosition().south());
+		
+		// E
+		if (theBoard.freeSquare(this.getPosition().east()))
+			positions.add(this.getPosition().east());
+		
+		// W
+		if (theBoard.freeSquare(this.getPosition().west()))
+			positions.add(this.getPosition().west());
+		
+		/*
+		// NE
+		if (theBoard.freeSquare(this.getPosition().north().east()))
+			positions.add(this.getPosition().north().east());
+		
+		// NW
+		if (theBoard.freeSquare(this.getPosition().north().west()))
+			positions.add(this.getPosition().north().west());
+		
+		// SE
+		if (theBoard.freeSquare(this.getPosition().south().east()))
+			positions.add(this.getPosition().south().east());
+		
+		// SW
+		if (theBoard.freeSquare(this.getPosition().south().west()))
+			positions.add(this.getPosition().south().west());
+		*/
+
+		return positions;
+		
+		
 	}
 
 }

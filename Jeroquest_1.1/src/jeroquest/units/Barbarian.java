@@ -54,4 +54,10 @@ public class Barbarian extends Character {
 
 		return impacts;
 	}
+
+	@Override
+	public char toChar() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
