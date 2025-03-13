@@ -3,7 +3,7 @@
  *
  **/
 
-class Bicycle implements Driveable {
+abstract class Bicycle implements Driveable {
 
        int cadence = 0;
        int speed = 0;

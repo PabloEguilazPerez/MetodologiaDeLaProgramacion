@@ -9,8 +9,8 @@ public class BicycleDemo {
      public static void main(String[] args) {
 
           // Create two different Bicycle objects
-          Bicycle bike1 = new Bicycle();
-          Bicycle bike2 = new Bicycle();
+          Bicycle bike1 = new MountainBike(0, 0, 0, "");
+          Bicycle bike2 = new RoadBike(0, 0, 0, 0);
 
           // Invoke methods on those objects
           bike1.setCadence(50);
@@ -29,7 +29,7 @@ public class BicycleDemo {
           bike2.printStates();
           
           //Create Driveable object
-          Driveable bike3 = new Bicycle();
+          Driveable bike3 = new RoadBike(0, 0, 0, 0);
           bike3.turnLeft(5);
           ((Bicycle)bike3).setGear(5);
           ((Bicycle)bike3).printStates();
