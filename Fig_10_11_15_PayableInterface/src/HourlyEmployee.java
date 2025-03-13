@@ -44,8 +44,8 @@ public class HourlyEmployee extends Employee  implements Payable {
 	
 	@Override
 	public String toString() {
-		return String.format( "salaried employee: %s\n%s: %s\n%s: $%,.2f", 
-		         super.toString(), "hours", getHours(), "wage", getWage());
+		return String.format( "salaried employee: %s\n%s: $%,.2f", 
+		         super.toString(), "wage", getWage());
 	}
 
 }

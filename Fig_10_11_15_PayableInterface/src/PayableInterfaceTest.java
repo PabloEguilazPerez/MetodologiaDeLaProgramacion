@@ -6,14 +6,15 @@ public class PayableInterfaceTest
    public static void main( String[] args )
    {
       // create four-element Payable array
-      Payable[] payableObjects = new Payable[ 4 ];
+      Payable[] payableObjects = new Payable[ 6 ];
       
       // populate array with objects that implement Payable
       payableObjects[ 0 ] = new Invoice( "01234", "seat", 2, 375.00 );
       payableObjects[ 1 ] = new Invoice( "56789", "tire", 4, 79.95 );
       payableObjects[ 2 ] = new SalariedEmployee( "John", "Smith", "111-11-1111", 800.00 );
       payableObjects[ 3 ] = new SalariedEmployee( "Lisa", "Barnes", "888-88-8888", 1200.00 );
-      payableObjects[ 3 ] = new HourlyEmployee("Juan", "Perez", "222-22-2222", 10.0, 50.0);
+      payableObjects[ 4 ] = new HourlyEmployee("Juan", "Perez", "222-22-2222", 10.0, 50.0);
+      payableObjects[ 5 ] = new HourlyEmployee("Maria", "Lopez", "333-33-3333", 15.0, 40.0);
       
       
       System.out.println("Invoices and Employees processed polymorphically:\n" ); 
@@ -21,6 +22,11 @@ public class PayableInterfaceTest
       for ( Payable currentPayable : payableObjects )
       {
          System.out.printf("\n Clase del objeto: %s\n", currentPayable.getClass().getName());
+         
+         if  (currentPayable instanceof HourlyEmployee) {
+		 	System.out.println("Horas trabajadas: " + ((HourlyEmployee) currentPayable).getHours());
+		 }
+         
     	 // output currentPayable and its appropriate payment amount
          System.out.printf( "%s \n%s: $%,.2f\n\n", 
             currentPayable.toString(), 

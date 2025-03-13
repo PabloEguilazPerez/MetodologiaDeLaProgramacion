@@ -4,7 +4,7 @@
  * 
  */
 
-public class RoadBike implements Driveable {
+public class RoadBike extends Bicycle implements Driveable {
 
 	private int tireWidth; // In millimeters (mm)
 

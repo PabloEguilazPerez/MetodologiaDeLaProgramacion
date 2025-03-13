@@ -4,7 +4,7 @@
  * 
  */
 
-public class MountainBike implements Driveable {
+public class MountainBike extends Bicycle implements Driveable {
 
 	private String suspension;
 
