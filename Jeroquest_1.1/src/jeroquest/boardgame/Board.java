@@ -1,5 +1,6 @@
 package jeroquest.boardgame;
 
+import jeroquest.items.Item;
 import jeroquest.units.Character;
 import jeroquest.utils.Position;
 
@@ -154,4 +155,10 @@ public class Board {
 		
 	}
 
+	public void addItem(Piece item, Position position) {
+
+		getSquare(position).setPiece(item);
+		item.setPosition(position);
+
+	}
 }

@@ -4,6 +4,7 @@ import java.util.Random;
 
 import jeroquest.boardgame.Board;
 import jeroquest.boardgame.Dice;
+import jeroquest.items.Wall;
 import jeroquest.units.Character;
 import jeroquest.utils.DynamicVectorPosition;
 import jeroquest.utils.Position;
@@ -25,6 +26,7 @@ public class JeroquestMain {
 	static final int ROWS = 10;
 	static final int COLS = 10;
 	static final int NUM_PIECES = 6;
+	static final int NUM_WALLS = 90;
 
 	public static void main(String[] args) {
 
@@ -35,6 +37,10 @@ public class JeroquestMain {
 		
 		// We create a vector of pieces
 		Character[] pieces = new Character[NUM_PIECES];
+
+		// We create a vector of walls
+		Wall[] walls = new Wall[NUM_WALLS];
+
 		for (int i = 0; i < pieces.length; i++) {
 			
 			switch (r.nextInt(2)) {
@@ -46,9 +52,17 @@ public class JeroquestMain {
 				case 1:
 					pieces[i] = new Mummy("Mummy" + i);
 					break;
+
+				default:
+					break;
 					
 			}
 			
+		}
+
+		for (int i = 0; i < walls.length; i++) {
+			walls[i] = new Wall();
+			theBoard.addItem(walls[i], new Position(Dice.roll(ROWS) - 1, Dice.roll(COLS) - 1));
 		}
 
 		// move the pieces to the initial position
@@ -81,8 +95,7 @@ public class JeroquestMain {
 	 */
 	private static void setup(Character[] pieces, Board theBoard) {
 		for (int i = 0; i < pieces.length; i++) {
-			while (!theBoard.movePiece(pieces[i], new Position(Dice.roll(ROWS) - 1, Dice.roll(COLS) - 1)))
-				;
+			while (!theBoard.movePiece(pieces[i], new Position(Dice.roll(ROWS) - 1, Dice.roll(COLS) - 1)));
 		}
 	}
 
@@ -106,4 +119,6 @@ public class JeroquestMain {
 			theBoard.movePiece(piece, positions.get(selected));
 		}
 	}
+
+
 }

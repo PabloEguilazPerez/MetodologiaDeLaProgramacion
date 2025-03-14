@@ -2,30 +2,37 @@ package jeroquest.boardgame;
 
 import jeroquest.utils.Position;
 
-public abstract class Piece {
-	private Position pos;
+/*
+ ¿Tendría sentido que la clase Item implementara la interface Piece? Razona la respuesta e incluye un comentario al inicio del fichero Piece.java con el formato:
+ */
 
-	public Piece() {
-		this.pos = null;
-	}
+// 2.4.3.: No tendría sentido que la clase Item implementara la interface Piece, ya que la clase Item no es una pieza del tablero, sino que es una clase que representa un objeto que puede ser colocado en una casilla del tablero. Por otro lado, la clase Wall sí que implementa la interface Piece, ya que representa una pieza del tablero.
 
+/*
+ ¿Podría ser Piece una clase abstracta de la que hereden tanto Character como Wall? Razona la respuesta.
+ */
+
+// 2.4.3.: No, Piece no podría ser una clase abstracta de la que hereden tanto Character como Wall, ya que Piece es una interface y no una clase abstracta. En Java, una clase no puede heredar de una interface, sino que debe implementarla. Por otro lado, en Java, una clase puede implementar múltiples interfaces, pero no puede heredar de múltiples clases.
+
+public interface Piece {
 	/**
 	 * Get the position in the board
-	 * 
+	 *
 	 * @return the position in the board
 	 */
-	public Position getPosition() {
-		return pos;
-	}
+	Position getPosition();
 
 	/**
 	 * Set the position of the piece in the board
-	 * 
+	 *
 	 * @param pos new position of the piece in the board
 	 */
-	public void setPosition(Position pos) {
-		this.pos = pos;
-	}
+	void setPosition(Position pos);
 
-	public abstract char toChar();
+	/**
+	 * Get the character representation of the piece
+	 *
+	 * @return the character representation of the piece
+	 */
+	char toChar();
 }

@@ -16,13 +16,15 @@ import jeroquest.utils.Position;
  * 
  */
 
-public abstract class Character extends Piece {
+public abstract class Character implements Piece {
 	// current attributes of a character
 	private int movement; // movement units per turn
 	private int attack; // total dices for an attack
 	private int defence; // total dices for defence
 	private int body; // body points
 	private String name; // name of the character
+
+	protected Position position;
 
 
 	/**
@@ -39,7 +41,6 @@ public abstract class Character extends Piece {
 		attack = itsAttack;
 		defence = itsDefence;
 		body = itsBody;
-
 }
 
 	/**
@@ -191,8 +192,7 @@ public abstract class Character extends Piece {
 		*/
 
 		return positions;
-		
-		
+
 	}
 
 }
