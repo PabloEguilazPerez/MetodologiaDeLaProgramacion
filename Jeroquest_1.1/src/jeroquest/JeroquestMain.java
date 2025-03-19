@@ -26,7 +26,7 @@ public class JeroquestMain {
 	static final int ROWS = 10;
 	static final int COLS = 10;
 	static final int NUM_PIECES = 6;
-	static final int NUM_WALLS = 90;
+	static final int NUM_WALLS = 9;
 
 	public static void main(String[] args) {
 
