@@ -23,7 +23,7 @@ public class JeroquestMain {
 		// let's play a game with 3 Heroes against 4 Monsters
 		// in a board of 7 by 10
 		// in 20 turns
-		Controller.getInstance().newGame(3, 4, 7, 10, 20);
+		Controller.getInstance().newGame(3, 4, 6, 6, 60);
 		Controller.getInstance().toPlay();
 	}
 

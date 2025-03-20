@@ -284,7 +284,15 @@ public abstract class Character implements Piece, GraphicalPiece {
 		DynamicVectorCharacters targets = validTargets();
 
 		if (targets.length() > 0) {
-			Character target = targets.get(Dice.roll(targets.length()) - 1);
+			Character target = targets.get(0);
+			
+			for (int i = 0; i < targets.length(); i++) {
+				
+				if (targets.get(i).getBody() > target.getBody())
+					target = targets.get(i);
+				
+			}
+			
 			String message = String.format("%s %s attacks to %s %s", getName(), getPosition(), target.getName(),
 					target.getPosition());
 			Controller.getInstance().updateGraphicalPiece(null, message);
@@ -351,16 +359,19 @@ public abstract class Character implements Piece, GraphicalPiece {
 	 * @return the valid targets for the character in its current position
 	 */
 	public DynamicVectorCharacters validTargets() {
-		// search targets
 		DynamicVectorCharacters validTargets = new DynamicVectorCharacters();
-
-		// It needs to iterate the characters in the game and add the valid targets,
-		// that is:
-		// 1.- the ones alive
-		// 2.- that are enemies
-		// 3.- that are at attack range
-
-		return validTargets;
+	    int b;
+	    int i;
+	    Character[] arrayOfCharacter;
+	    for (i = (arrayOfCharacter = Controller.getInstance().getCurrentGame().getCharacters()).length, b = 0; b < i; ) {
+	      Character character = arrayOfCharacter[b];
+	      if (character.isAlive() && 
+	        isEnemy(character) && 
+	        isAtRange(character.getPosition()))
+	        validTargets.add(character); 
+	      b++;
+	    } 
+	    return validTargets;
 	}
 
 	/**
