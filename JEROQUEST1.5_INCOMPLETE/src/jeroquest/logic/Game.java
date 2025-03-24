@@ -107,6 +107,12 @@ public class Game {
 	public Character[] getCharacters() {
 		return characters;
 	}
+	
+	public void removeCharacter(Character c) {
+		
+		
+		
+	}
 
 	/**
 	 * Get the board of the game

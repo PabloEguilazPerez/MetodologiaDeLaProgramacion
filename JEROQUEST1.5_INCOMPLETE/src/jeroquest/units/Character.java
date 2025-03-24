@@ -238,13 +238,15 @@ public abstract class Character implements Piece, GraphicalPiece {
 	 * Simulates an combat with other character, it does the attack and the defence.
 	 * If the attack kills the opponent it is moved out of the board
 	 * 
-	 * @param c character being attacked
+	 * @param c character being attacked	
 	 */
 	public void combat(Character c) { // attacks to c and c defends itself
 		int impacts = this.attack();
 		int wounds = c.defend(impacts);
 		if (!c.isAlive()) {
-			Controller.getInstance().getCurrentGame().getBoard().removePiece(c);
+			//Controller.getInstance().getCurrentGame().getBoard().removePiece(c);
+			Controller.getInstance().getCurrentGame().removeCharacter(c);
+
 		}
 		if (wounds > 0) {
 			Controller.getInstance().updateGraphicalPiece(c, String.format("%s cannot block %d impacts%s", c.getName(),
