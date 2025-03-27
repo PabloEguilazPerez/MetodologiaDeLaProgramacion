@@ -4,7 +4,7 @@
  * @author puente
  *
  */
-public class Profesor extends Personal implements Asalariado{
+public class Profesor extends Personal implements Asalariado, PI{
 	private double salarioAnual;
 	private double cotizacionAnual;
 	private String departamento;
@@ -14,7 +14,7 @@ public class Profesor extends Personal implements Asalariado{
 	 * @param nombre - nombre del estudiante
 	 * @param dni - dni del profesor
 	 * @param salarioAnual - salario anual del profesor
-	 * @param cotizacionAnual - cotización anual del profesor
+	 * @param cotizacionAnual - cotizaciï¿½n anual del profesor
 	 * @param departamento - departamento del profesor
 	 */
 	public Profesor(String nombre, String dni, double salarioAnual, double cotizacionAnual, String departamento) {
@@ -42,16 +42,16 @@ public class Profesor extends Personal implements Asalariado{
 	}
 
 	/**
-	 * Observador de la cotización anual
-	 * @return la cotización anual
+	 * Observador de la cotizaciï¿½n anual
+	 * @return la cotizaciï¿½n anual
 	 */
 	public double getCotizacionAnual() {
 		return cotizacionAnual;
 	}
 
 	/** 
-	 * Modificador de la cotización anual
-	 * @param cotizacionAnual - la nueva cotización anual
+	 * Modificador de la cotizaciï¿½n anual
+	 * @param cotizacionAnual - la nueva cotizaciï¿½n anual
 	 */
 	public void setCotizacionAnual(double cotizacionAnual) {
 		this.cotizacionAnual = cotizacionAnual;
@@ -77,7 +77,7 @@ public class Profesor extends Personal implements Asalariado{
 
 	@Override
 	public double saldo() {
-		// NEGATIVO: salario anual + la cotización anual
+		// NEGATIVO: salario anual + la cotizaciï¿½n anual
 		return - (this.getSalarioAnual() + this.getCotizacionAnual());
 	}
 
@@ -90,5 +90,24 @@ public class Profesor extends Personal implements Asalariado{
 	@Override
 	public String toString() {
 		return super.toString() + String.format(" salario:%f cotizacion:%f departamento:%s", this.getSalarioAnual(), this.getCotizacionAnual(), this.getDepartamento());
+	}
+
+
+	@Override
+	public String getGrupo() {
+		return null;
+	}
+
+
+	@Override
+	public Profesor getIP() {
+		return null;
+	}
+
+
+	@Override
+	public String getTema() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
