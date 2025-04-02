@@ -6,6 +6,8 @@
  */
 package jeroquest.logic;
 
+import java.util.Random;
+
 import jeroquest.boardgame.Dice;
 import jeroquest.boardgame.Position;
 import jeroquest.gui.GraphicalPiece;
@@ -127,12 +129,23 @@ public class Controller {
 	 */
 	private void resolveRound() {
 		System.out.println("Round: " + currentGame.getCurrentRound());
+		
+		Character[] characters = currentGame.getCharacters();
 
-		for (int x = 0; (x < currentGame.getCharacters().length) && opponentsLeft(); x++) {
-			Character c = currentGame.getCharacters()[x];
-			if (c.isAlive())
-				c.resolveTurn();
-		}
+	    Random rand = new Random();
+	    for (int i = characters.length - 1; i > 0; i--) {
+	        int j = rand.nextInt(i + 1);
+	        Character temp = characters[i];
+	        characters[i] = characters[j];
+	        characters[j] = temp;
+	    }
+
+	    for (int x = 0; (x < characters.length) && opponentsLeft(); x++) {
+	        Character c = characters[x];
+	        if (c.isAlive()) {
+	            c.resolveTurn();
+	        }
+	    }
 	}
 
 	/**
