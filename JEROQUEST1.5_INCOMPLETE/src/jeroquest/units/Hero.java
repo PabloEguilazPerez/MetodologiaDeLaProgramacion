@@ -114,6 +114,19 @@ public abstract class Hero extends Character {
 	public boolean isEnemy(Character c) {
 		return (c instanceof Monster);
 	}
+	
+	
+	@Override
+	public void resolveTurn() {
+	    boolean hasAttacked = actionCombat(); // Intenta atacar primero
+
+	    int movesLeft = getMovement();
+	    while (movesLeft > 0 && !hasAttacked) {
+	        actionMovement();
+	        hasAttacked = actionCombat(); // Intenta atacar después de moverse
+	        movesLeft--;
+	    }
+	}
 
 	/**
 	 * Generate a printable version of the object as String, it adds to the
