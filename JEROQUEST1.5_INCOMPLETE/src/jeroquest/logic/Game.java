@@ -126,7 +126,11 @@ public class Game {
 	
 	public void removeCharacter(Character c) {
 		
+		int index = characters.position(c);
 		
+		characters.remove(index);
+		
+		System.out.println("Personaje eliminado: " + characters.length());
 		
 	}
 

@@ -244,7 +244,7 @@ public abstract class Character implements Piece, GraphicalPiece {
 		int impacts = this.attack();
 		int wounds = c.defend(impacts);
 		if (!c.isAlive()) {
-			//Controller.getInstance().getCurrentGame().getBoard().removePiece(c);
+			Controller.getInstance().getCurrentGame().getBoard().removePiece(c);
 			Controller.getInstance().getCurrentGame().removeCharacter(c);
 
 		}
