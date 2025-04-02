@@ -12,6 +12,7 @@ import jeroquest.units.Character;
 import jeroquest.units.Dwarf;
 import jeroquest.units.Goblin;
 import jeroquest.units.Mummy;
+import jeroquest.utils.DynamicVectorCharacters;
 
 /**
  * Class that represents the state of a game and it is defined
@@ -22,7 +23,11 @@ import jeroquest.units.Mummy;
  */
 
 public class Game {
-	private Character characters[]; // characters in the game
+	
+	//private Character characters[]; // characters in the game
+	
+	private DynamicVectorCharacters characters;
+	
 	private Board board; // where the game takes place
 	private int currentRound; // current round
 	private int totalRounds; // maximum number of rounds to play
@@ -62,20 +67,31 @@ public class Game {
 		board = new Board(rows, columns);
 
 		// create the characters
-		 characters = new Character[numHeroes + numMonsters];
+		characters = new DynamicVectorCharacters(numHeroes + numMonsters);
 		
 		// random heroes
 		for (int x = 0; x < numHeroes; x++)
 			if (Dice.roll() % 2 == 0)// if even create a barbarian
-				characters[x] = new Barbarian("Barbarian" + x, "<NoPlayer>");
+				
+				//characters[x] = new Barbarian("Barbarian" + x, "<NoPlayer>");
+				characters.set(x, new Barbarian("Barbarian" + x, "<NoPlayer>"));
+				
 			else // if odd create a Dwarf
-				characters[x] = new Dwarf("Dwarf" + x, "<NoPlayer>");
+				
+				//characters[x] = new Dwarf("Dwarf" + x, "<NoPlayer>");
+				characters.set(x, new Dwarf("Dwarf" + x, "<NoPlayer>"));
+		
 		// random monsters
 		for (int y = 0; y < numMonsters; y++)
 			if (Dice.roll() % 2 == 0)// if even create a mummy
-				characters[numHeroes + y] = new Mummy("Mummy" + y);
+			
+				//characters[numHeroes + y] = new Mummy("Mummy" + y);
+				characters.set(numHeroes + y, new Mummy("Mummy" + y));
+			
 			else // if odd create a goblin
-				characters[numHeroes + y] = new Goblin("Goblin" + y);
+				
+				//characters[numHeroes + y] = new Goblin("Goblin" + y);
+				characters.set(numHeroes + y, new Goblin("Goblin" + y));
 
 		// first round
 		currentRound = 1;
@@ -105,7 +121,7 @@ public class Game {
 	 * @return array with the character of the game
 	 */
 	public Character[] getCharacters() {
-		return characters;
+		return characters.vectorNormal();
 	}
 	
 	public void removeCharacter(Character c) {
@@ -131,8 +147,8 @@ public class Game {
 	@Override
 	public String toString() {
 		String s = "";
-		for (int x = 0; x < characters.length; x++) {
-			s += String.format("%s\n", characters[x]);
+		for (int x = 0; x < characters.length(); x++) {
+			s += String.format("%s\n", characters.get(x));
 		}
 		s += getBoard();
 		return s;
